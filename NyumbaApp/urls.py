@@ -5,9 +5,9 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("users/",include("usersapp.urls")),
-    path("",include("core.urls"))
+    path("",include("core.urls")),
+
 ]
-############################
 #-serving images and files
 if settings.DEBUG:
     urlpatterns+=static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)

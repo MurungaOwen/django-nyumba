@@ -12,5 +12,3 @@ class CustomUser(AbstractUser):#leaving username and first name
     phone_number=PhoneNumberField(blank=True)
     #-------other user details------->
     objects=CustomUserManager()
-    class Meta:#data abt the model
-        app_label="usersapp"

@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nyumba site</title>
+    <link rel="stylesheet" href="{%static 'css/bootstrap.css' %}">
+</head>
+<body>
+
+    {% if messages %}
+        {% for m in messages %}
+            <div class="alert {{m.tags}} align-center" role="alert" id="alert">
+                {{m}}
+                <button type="button" class="close" data-bs-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        {% endfor %}
+    {% endif %}
+    <div class="container">
+        <form action="." method="POST" class="container-fluid align-content-center  my-5" style="width:800px;">
+            <h3>Login </h3>
+            <hr>
+            {%csrf_token%}
+            <label for="email">Email:</label>
+                <p>{{form.email}}</p>
+                <div class="text-danger"><p class="text-danger">{{form.errors.Email}}</p></div>
+            
+
+            <label for="password">Password:</label>
+                <p id="passwd">{{form.password}}</p>
+                <input type="checkbox" name="show_passwd" id="show_passwd"><p>show passwd</p>
+                <div class="text-danger"><p class="text-danger">{{form.errors.password}}</p></div>
+                
+            <input type="submit" value="register" class="mb-2 ">
+        </form>
+    </div>
+    <script src="{%static 'js/bootstrap.js' %}"></script>
+    <script src="{%static 'js/main.js' %}"></script>
+</body>
+</html>

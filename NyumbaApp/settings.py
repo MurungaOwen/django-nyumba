@@ -120,7 +120,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT=BASE_DIR/"compressedstatic"
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
 
 MEDIA_URL="media/"
 MEDIA_ROOT=BASE_DIR/"media"
@@ -129,3 +131,28 @@ MEDIA_ROOT=BASE_DIR/"media"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL="usersapp.CustomUser"
+
+# messages format
+from django.contrib.messages import constants as messages
+
+MESSAGE_TAGS = {
+    messages.DEBUG: 'alert-secondary',
+    messages.INFO: 'alert-info',
+    messages.SUCCESS: 'alert-success',
+    messages.WARNING: 'alert-warning',
+    messages.ERROR: 'alert-danger',
+}
+LOGIN_URL="users/login/"
+LOGIN_REDIRECT_URL="/"
+LOGOUT_URL="users/logout/"
+LOGOUT_REDIRECT_URL="/"
+
+#------------email configurations------------
+#usng mailtrap smtp for testing--------
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
+EMAIL_HOST_USER = '1d1f7bd73a07d4'
+EMAIL_HOST_PASSWORD = '8023dc0e88e64e'
+EMAIL_PORT = '2525'
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = False

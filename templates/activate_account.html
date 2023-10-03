@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nyumba site</title>
+</head>
+<body>
+    <div class="container">
+        <h3>Dear {{user}},</h3>
+        <div>
+            click on the link to activate your nyumba account,
+            <a href="http://{{domain}}{% url 'users:activate_account' uidb64=uid token=token%}">
+                http://{{domain}}{% url 'users:activate_account' uidb64=uid token=token%}
+            </a>
+            Regards,
+            friends from nyumba site.
+        </div>
+
+    </div>
+</body>
+</html>

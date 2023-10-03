@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nyumba site</title>
+    <link rel="stylesheet" href="{%static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{%static 'css/style.css' %}">
+</head>
+<body>
+    <nav>
+        <div class="align-center container-fluid bg-dark">
+            <div class="a">
+                <a href="{% url 'home' %}" class="">Home</a>
+                <a href="#" class="">categories</a>
+                <a href="#" class="">Location</a>
+            </div>
+            <div class="b">
+                <a href="#">Profile</a>
+                <a href=" {% url 'usersapp:logout' %}">Logout</a> 
+            </div>
+        </div>
+    </nav>
+    {% if messages %}
+        {% for m in messages %}
+            <div class="alert {{m.tags}} align-center" role="alert" id="alert">
+                {{m}}
+                <button type="button" class="close" data-bs-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        {% endfor %}
+    {% endif %}
+    <script src="{%static 'js/bootstrap.js' %}"></script>
+</body>
+</html>
