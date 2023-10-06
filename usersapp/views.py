@@ -2,7 +2,8 @@ from django.shortcuts import render,redirect
 from django.contrib.auth import get_user_model
 from django.contrib import messages
 from django.core.mail import send_mail
-from django.contrib.auth import authenticate,login,logout
+from django.contrib.auth import authenticate,login,user_logged_out,logout
+from django.contrib.auth.decorators import login_required
 from django.template.loader import render_to_string#convert email in html to string
 from django.utils.http import urlsafe_base64_encode,urlsafe_base64_decode
 from django.contrib.sites.shortcuts import get_current_site#returns like the domain and stuff
@@ -10,23 +11,23 @@ from django.utils.html import strip_tags
 from django.utils.encoding import force_bytes,force_str
 # Create your views here.
 from .forms import RegisterForm,LoginForm
-from .tokens import email_token_generator
+from .tokens import account_activation_token
 User=get_user_model()
 
+
+#-------register a new user----------
 def register_user(request):
     form=RegisterForm(request.POST or None)
     if form.is_valid():
         password1=form.cleaned_data.get("password1")
+        password=form.cleaned_data.get("password2")
         email=form.cleaned_data.get("email")
-        phone_number=form.cleaned_data.get("phone_number")
-        user=User(email=email,phone_number=phone_number)
-        user.set_password(password1)
+        user=User(email=email)
+        user.set_password(password)
         user.is_active=False
         user.save()
-        print(email)
-        send_account_activation_email(request,user,email)#----calling function ya   kutuma email-------
+        send_account_activation_email(request,user,email)
         messages.success(request,"user created ,check mail to activate eaccount")
-        return redirect("usersapp:login")
     return render(request,"signup.html",locals())
 
 #----------------inakam kwa the email template-----------------------
@@ -36,7 +37,7 @@ def send_account_activation_email(request,user,to_email):
         "activate_account.html",{
             "user":to_email,
             "site":get_current_site(request).domain,
-            "token":email_token_generator(user),
+            "token":account_activation_token.make_token(user),
             "uid":urlsafe_base64_encode(force_bytes(user.pk))
         })
     plain_message=strip_tags(html_message)
@@ -46,11 +47,12 @@ def send_account_activation_email(request,user,to_email):
         messages.error(request,"unable to send mail")
     return redirect("usersapp:login")
     
+
 #-------------------ukiclick link from the email------------
-def account_activation_token(request,uidb64,token):
+def email_account_activation_token(request,uidb64,token):
     uid=force_str(urlsafe_base64_decode(uidb64))
     user=User.object.get(pk=uid)
-    if email_token_generator.check_token(user,token):
+    if account_activation_token.check_token(user,token):
         user.is_active=True
         user.save()
         messages.success(request,"account activated")
@@ -77,6 +79,7 @@ def login_user(request):
             messages.info(request,"check password and try again")
     return render(request,"login.html",locals())
 
+@login_required
 def logout_user(request):
     logout(request)#####close the session ama kulogout a user
     return redirect("home")
