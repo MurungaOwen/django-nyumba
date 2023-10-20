@@ -9,16 +9,22 @@
     <link rel="stylesheet" href="{%static 'css/style.css' %}">
 </head>
 <body>
-    <nav>
-        <div class="align-center container-fluid bg-dark">
+    <nav class="container-fluid shadow-md g-2">
+        <div class="align-center ">
             <div class="a">
-                <a href="{% url 'home' %}" class="">Home</a>
-                <a href="#" class="">categories</a>
-                <a href="#" class="">Location</a>
+                <a href="{% url 'home' %}" class="text-danger">Home</a>
+                <a href="#" class="text-danger">categories</a>
+                <a href="#" class="text-danger">Location</a>
+                <a href="#" class="text-danger">Movers</a>
             </div>
-            <div class="b">
-                <a href="#">Profile</a>
-                <a href=" {% url 'usersapp:logout' %}">Logout</a> 
+            <form action="" method="POST" class="search__form">
+                <input type="text" value="" >
+                <button>search</button>
+            </form>
+            <!-- search form goes down here -->
+            <div class="b text-danger">
+                <a href="#" class="text-danger">Profile</a>
+                <a href=" {% url 'usersapp:logout' %}" class="text-danger">Logout</a> 
             </div>
         </div>
     </nav>
@@ -32,6 +38,11 @@
             </div>
         {% endfor %}
     {% endif %}
+    <div class="container">
+        <!--carousel  -->
+        
+
+    </div>
     <script src="{%static 'js/bootstrap.js' %}"></script>
 </body>
 </html>
