@@ -41,7 +41,7 @@ def send_account_activation_email(request,user,to_email):
             "uid":urlsafe_base64_encode(force_bytes(user.pk))
         })
     plain_message=strip_tags(html_message)
-    if send_mail(mail_subject,plain_message,"admin@nyumba.com",[to_email],html_message):
+    if send_mail(mail_subject,plain_message,"admin@nyumba.com",[to_email],html_message=html_message):
         messages.info(request,"check mail inbox to activate account or the spam folder")
     else:
         messages.error(request,"unable to send mail")
@@ -51,12 +51,12 @@ def send_account_activation_email(request,user,to_email):
 #-------------------ukiclick link from the email------------
 def email_account_activation_token(request,uidb64,token):
     uid=force_str(urlsafe_base64_decode(uidb64))
-    user=User.object.get(pk=uid)
+    user=User.objects.get(pk=uid)
     if account_activation_token.check_token(user,token):
         user.is_active=True
         user.save()
         messages.success(request,"account activated")
-        return redirect("home")
+        return redirect("usersapp:login")
     else:
         messages.error(request,"the token expired,request a new password change")
 
@@ -72,7 +72,7 @@ def login_user(request):
         if user:
             login(request,user)
             print("login")
-            messages.success(request,f"logged in as ${email}")
+            messages.success(request,f"logged in as {email}")
             return redirect("home")
             
         else:

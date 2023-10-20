@@ -10,9 +10,9 @@
         <h3>Dear {{user}},</h3>
         <div>
             click on the link to activate your nyumba account,
-            <a href="http://{{domain}}{% url 'usersapp:activate_account' uidb64=uid token=token%}">
-                http://{{domain}}{% url 'usersapp:activate_account' uidb64=uid token=token%}
-            </a>
+            <a href="http://{{site}}{% url 'usersapp:activate_account' uidb64=uid token=token%}">
+                here
+            </a><br>
             Regards,
             friends from nyumba site.
         </div>

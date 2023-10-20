@@ -1,18 +1,20 @@
-
+/* @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat&family=Nunito+Sans:opsz@6..12&family=Open+Sans:ital,wght@1,500&family=Poppins:wght@300&family=Raleway:wght@500&family=Roboto&family=Ubuntu:wght@500&display=swap');
+ */
 nav div{
     display: grid;
-    grid-template-areas: "a a a a a a a b";
+    grid-template-areas: "a a a a f f f b b b";
     margin: 0px;
     padding: 0px;
-    
+
 }
 .a{
     grid-area: a;
     display: flex;
-    padding:20px;
+    padding: 20px;
     align-items: center;
 }
-.b{
+
+.b {
     grid-area: b;
     display: flex;
     padding: 20px;
@@ -27,41 +29,3 @@ a:hover{
     opacity: 0.8;
     cursor: pointer;
 }
-
-
-/* GLOBAL STYLING */
-
-
-@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat&family=Nunito+Sans:opsz@6..12&family=Open+Sans:ital,wght@1,500&family=Poppins:wght@300&family=Raleway:wght@500&family=Roboto&family=Ubuntu:wght@500&display=swap');
-
-
-
-*{
-    box-sizing: border-box;
-}
-
-body{
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background: linear-gradient(120deg, #FFCCCC, #CCCCFF);
-    font-family: Montserrat, sans-serif;
-}
-
-.container{
-    width:80vw;
-}
-
-
-
-
-
-
-
-
-
-/* input[type="submit"]{
-    padding:10px 20px;
-    background-color: #f00;
-    color:#fff;
-} */
