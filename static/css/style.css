@@ -1,41 +1,31 @@
-
+/* @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat&family=Nunito+Sans:opsz@6..12&family=Open+Sans:ital,wght@1,500&family=Poppins:wght@300&family=Raleway:wght@500&family=Roboto&family=Ubuntu:wght@500&display=swap');
+ */
 nav div{
     display: grid;
     grid-template-areas: "a a a a f f f b b b";
     margin: 0px;
     padding: 0px;
-    
-}
 
+}
 .a{
     grid-area: a;
     display: flex;
-    padding:20px;
+    padding: 20px;
     align-items: center;
 }
-.b{
+
+.b {
     grid-area: b;
     display: flex;
     padding: 20px;
     align-items: center;
 }
-nav a{
+a{
     text-decoration: none;
-    color:red;
+    color: white;
     margin-left: 20px;
 }
 a:hover{
-    opacity: 0.5;
-    cursor: pointer;   
+    opacity: 0.8;
+    cursor: pointer;
 }
-.search__form{
-    display: flex;
-    grid-area: f;
-    padding: 20px;
-    text-decoration: none;
-}
-nav{
-    height: 70px;
-    width: auto;
-}
-
