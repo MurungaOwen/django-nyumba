@@ -1,0 +1,71 @@
+/* GLOBAL STYLING */
+
+
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat&family=Nunito+Sans:opsz@6..12&family=Open+Sans:ital,wght@1,500&family=Poppins:wght@300&family=Raleway:wght@500&family=Roboto&family=Ubuntu:wght@500&display=swap');
+
+
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    font-family: Montserrat, sans-serif;
+    background: linear-gradient(120deg, #FFCCCC, #CCCCFF);
+}
+
+
+/* FORM STYLING */
+.container form {
+    position: relative;
+    padding: 20px;
+    background-color: #f1f1f1;
+    border: none;
+    border-radius: 18px;
+}
+
+.container form h3 {
+    text-align: center;
+    font-size: 30px;
+    letter-spacing: 2px;
+    font-weight: 700;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #2691da;
+}
+
+.container form label {
+    position: relative;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin: 10px 0 5px;
+}
+
+.container input {
+    border: none;
+    padding: 5px;
+    background-color: inherit;
+    border-bottom: 1px solid silver;
+}
+
+.container input:focus {
+    outline: none;
+    border: none;
+}
+
+.container input[type="submit"] {
+    width:300px;
+    margin:0 auto;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 25px;
+    text-transform: capitalize;
+    letter-spacing: 2px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: 400;
+    background-color: rgba(49, 186, 190, 0.911);
+}
