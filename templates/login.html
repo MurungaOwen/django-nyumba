@@ -23,8 +23,10 @@
     {% endfor %}
     {% endif %}
 
+    <h1 id="heading">WELCOME TO MY-NYUMBA APPLICATION</h1>
+
     <div class="container">
-        <form action="." method="POST" class="container-fluid align-content-center  my-5" style="width:600px;">
+        <form action="." method="POST" class="container-fluid align-content-center  my-5" style="width: 600px;">
             <h3>Login </h3>
             {%csrf_token%}
 
@@ -37,12 +39,14 @@
 
             <label for="password">Password:</label>
             <p class="input-field" id="passwd">{{form.password}}</p>
-            <p id="inline-p">show password</p>
+            <p id="inline-p">show password ?</p>
             <div class="text-danger">
                 <p class="text-danger">{{form.errors.password}}</p>
             </div>
 
-            <input type="submit" value="register" class="mb-2 ">
+            <div class="submit-btn">
+                <input type="submit" value="login" class="mb-2 ">
+            </div>
         </form>
     </div>
     <script src="{%static 'js/bootstrap.js' %}"></script>

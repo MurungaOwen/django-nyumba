@@ -1,52 +1,64 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nyumba site</title>
     <link rel="stylesheet" href="{%static 'css/bootstrap.css' %}">
-    <link rel="stylesheet" href="{%static 'css/Signup.css' %}">
-     
+    <link rel="stylesheet" href="{%static 'css/register.css' %}">
+
 </head>
+
 <body>
     {% comment %} for the messages {% endcomment %}
     {% if messages %}
-        {% for m in messages %}
-            <div class="alert {{m.tags}} align-center" role="alert" id="alert">
-                {{m}}
-                <button type="button" class="close" data-bs-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-        {% endfor %}
+    {% for m in messages %}
+    <div class="alert {{m.tags}} align-center" role="alert" id="alert">
+        {{m}}
+        <button type="button" class="close" data-bs-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    {% endfor %}
     {% endif %}
 
     <div class="container">
-        <form action="." method="POST" class="container-fluid align-content-center  my-5" style="width:800px;">
+        <form action="." method="POST" class="container-fluid align-content-center my-5" id="signup-form">
 
             {%csrf_token%}
-            <h5>Signup</h5>
-            <hr>
+            <h5 class="heading">Signup</h5>
             <label for="email">Email:</label>
-                <p>{{form.email}}</p>
-                <div class="text-danger"><p class="text-danger">{{form.errors.Email}}</p></div>
-            
+            <p>{{form.email}}</p>
+            <div class="text-danger">
+                <p class="text-danger">{{form.errors.Email}}</p>
+            </div>
+
             <label for="phone_number">Phone Number:</label>
-                <p>{{form.phone_number}}</p>
-                <div class="text-danger"><p class="text-danger">{{form.errors.phone_number}}</p></div>
+            <p>{{form.phone_number}}</p>
+            <div class="text-danger">
+                <p class="text-danger">{{form.errors.phone_number}}</p>
+            </div>
 
             <label for="password1">Password:</label>
-                <p>{{form.password1}}</p>
-                <div class="text-danger"><p class="text-danger">{{form.errors.password1}}</p></div>
+            <p>{{form.password1}}</p>
+            <div class="text-danger">
+                <p class="text-danger">{{form.errors.password1}}</p>
+            </div>
 
             <label for="password2">Confirm Password:</label>
-                <p>{{form.password2}}</p>
-                <div class="text-danger"><p class="text-danger">{{form.errors.password2}}</p></div>
-                
-            <input type="submit" value="register" class="mb-2 ">
+            <p>{{form.password2}}</p>
+            <div class="text-danger">
+                <p class="text-danger">{{form.errors.password2}}</p>
+            </div>
+
+            <div class="center-reg-btn">
+                <input type="submit" value="register" class="mb-2 ">
+            </div>
         </form>
     </div>
     <script src="{%static 'js/bootstrap.js' %}"></script>
 </body>
+
 </html>

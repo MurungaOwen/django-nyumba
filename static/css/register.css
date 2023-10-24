@@ -1,5 +1,4 @@
 /* GLOBAL STYLING */
-
 @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat&family=Nunito+Sans:opsz@6..12&family=Open+Sans:ital,wght@1,500&family=Poppins:wght@300&family=Raleway:wght@500&family=Roboto&family=Ubuntu:wght@500&display=swap');
 
 * {
@@ -16,73 +15,55 @@ body {
     background-color: #D2D7DF;
 }
 
-
-#heading {
-    color: #00beef;
-    margin: 20px 0 0;
-    padding: 10px 0 0;
-    font-style: italic;
-    font-family: Roboto, sans-serif;
+.heading {
     text-align: center;
-    text-transform:uppercase;
-    text-decoration: underline;
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+    border-bottom: 2px solid #29c8da;
+    margin-bottom: 5px;
 }
 
-/* FORM STYLING */
-.my-5 {
+
+#signup-form {
     width: 600px;
     padding: 20px;
     border: none;
-    border-radius: 18px;
     background-color: #f1f1f1;
+    border: none;
+    border-radius: 18px;
     box-shadow: 10px 10px 8px 3px gray;
 }
 
-.my-5 h3 {
-    text-align: center;
-    font-size: 30px;
-    letter-spacing: 2px;
-    font-weight: 700;
-    padding-bottom: 10px;
-    border-bottom: 2px solid #2691da;
-}
 
-.my-5 label {
+#signup-form label {
     position: relative;
     font-weight: bold;
     letter-spacing: 1px;
     margin: 10px 0 5px;
 }
 
-.my-5 input {
+#signup-form input {
     border: none;
     padding: 5px;
     background-color: inherit;
     border-bottom: 1px solid silver;
 }
 
-.my-5 input:focus {
+#signup-form input:focus {
     outline: none;
     border: none;
 }
 
-#inline-p{
-    opacity: 0.6;
-    text-transform: capitalize;
-}
-
-#inline-p:hover{
-    text-decoration: underline;
-}
-
-.my-5 input[type="submit"] {
+#signup-form input[type="submit"] {
     width: 300px;
     border: none;
     padding: 10px 24px;
     border-radius: 25px;
     text-transform: capitalize;
     letter-spacing: 2px;
-    font-size: 18px;
+    font-size: 19px;
     font-weight: bold;
     cursor: pointer;
     color: #E8E9ED;
@@ -93,21 +74,7 @@ input[type="submit"]:hover {
     transform: scale(1.015);
 }
 
-.submit-btn {
+.center-reg-btn {
     width: 100%;
     text-align: center;
-}
-
-@media only screen and (min-width: 568px) and (max-width: 768px) {
-
-    .my-5 {
-        transform: scale(0.8);
-    }
-}
-
-@media only screen and (max-width: 568px) {
-
-    .my-5 {
-        transform: scale(0.6);
-    }
 }
