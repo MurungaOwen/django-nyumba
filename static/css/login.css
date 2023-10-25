@@ -67,11 +67,13 @@ body {
 }
 
 #inline-p{
-    opacity: 0.6;
+    opacity: 0.5;
+    cursor: pointer;
     text-transform: capitalize;
 }
 
 #inline-p:hover{
+    opacity: 0.85;
     text-decoration: underline;
 }
 
