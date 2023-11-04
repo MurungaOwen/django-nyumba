@@ -39,7 +39,7 @@
 
             <label for="password">Password:</label>
             <p class="input-field" id="passwd">{{form.password}}</p>
-            <p id="inline-p">show password ?</p>
+            
             <div class="text-danger">
                 <p class="text-danger">{{form.errors.password}}</p>
             </div>
@@ -47,6 +47,7 @@
             <div class="submit-btn">
                 <input type="submit" value="login" class="mb-2 ">
             </div>
+            <p><a href=" {% url 'password_reset' %}" class="text-danger">Forgot password</a></p>
         </form>
     </div>
     <script src="{%static 'js/bootstrap.js' %}"></script>

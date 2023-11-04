@@ -10,16 +10,15 @@ class CustomUser(AbstractUser):#leaving username and first name
     USERNAME_FIELD="email"
     REQUIRED_FIELDS=[]
     phone_number=PhoneNumberField(blank=True)
-    is_tenant=models.BooleanField(default=False)
+    is_houseAgent=models.BooleanField(default=False)
     profile_picture=models.ImageField(upload_to="user_profiles",null=True,blank=True)
+    
     #
     #-------other user details------->
     objects=CustomUserManager()
 
-# class Tenant(models.Model):
-#     contact=models.TextField()
-#     first_name=models.TextField()
-#     last_name=models.TextField()
-
+class HouseAgent(models.Model):
+    agent=models.ManyToManyField(CustomUser, verbose_name=_("agent"))
+    
 
 

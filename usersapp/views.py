@@ -9,8 +9,9 @@ from django.utils.http import urlsafe_base64_encode,urlsafe_base64_decode
 from django.contrib.sites.shortcuts import get_current_site#returns like the domain and stuff
 from django.utils.html import strip_tags
 from django.utils.encoding import force_bytes,force_str
+from django.contrib.auth.management import create_permissions
 # Create your views here.
-from .forms import RegisterForm,LoginForm
+from .forms import RegisterForm,LoginForm                                                                               
 from .tokens import account_activation_token
 User=get_user_model()
 
@@ -80,8 +81,9 @@ def login_user(request):
     return render(request,"login.html",locals())
 
 @login_required
-def logout_user(request):
+def logout_user(request):   
     logout(request)#####close the session ama kulogout a user
+    messages.success(request,"Logged out of your account ")
     return redirect("home")
 
 

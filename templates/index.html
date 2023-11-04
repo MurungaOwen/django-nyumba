@@ -26,7 +26,7 @@
                 <a href="#" class="text-danger">Profile</a>
                 <a href=" {% url 'usersapp:signup' %}" class="text-danger">Signup</a>
                 <a href=" {% url 'usersapp:login' %}" class="text-danger">Login</a>
-                <a href=" {% url 'usersapp:logout' %}" class="text-danger">Logout</a> 
+                {% if request.user.is_authenticated %}<a href=" {% url 'usersapp:logout' %}" class="text-danger">Logout</a> {% endif %}
             </div>
         </div>
     </nav>

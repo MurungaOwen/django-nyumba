@@ -54,3 +54,4 @@ class LoginForm(forms.Form):
             raise forms.ValidationError("no such email registered signup instead")
         return email
 
+
